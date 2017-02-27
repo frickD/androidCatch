@@ -13,7 +13,7 @@
     >
 
     <LinearLayout
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -26,6 +26,7 @@
             android:text="Take new Picture"
             android:background="@android:color/holo_orange_dark"
            android:textSize="20dp"
+            android:onClick="onTakePhoto"
             />
         <Button
            android:layout_marginTop="15dp"
@@ -35,7 +36,8 @@
             android:drawableLeft="@drawable/choose"
             android:text="Take an existing one"
             android:background="@android:color/holo_orange_dark"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:onClick="onChooseGallery"/>
         <Button
             android:layout_marginTop="15dp"
             android:padding="24dp"
@@ -46,8 +48,22 @@
             android:background="@android:color/holo_orange_dark"
             android:textSize="20dp"/>
 
+    </LinearLayout>
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <Button
+            android:onClick="onClear"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:background="@android:color/holo_orange_dark"
+            />
 
 
     </LinearLayout>
