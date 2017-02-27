@@ -3,56 +3,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
     tools:context="hochschule.maicatch.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="104dp"
-        android:text="maiCatch"
-        android:gravity="center"
-        android:textSize="50sp"
-        android:background="@android:color/holo_orange_dark"
-        android:layout_weight="1.57" />
 
-    <LinearLayout
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:layout_weight="9.46"
-        >
-        <Button
+
+    <ScrollView
+        android:id="@+id/imageScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="97dp"
-            android:text="@string/newpicture"
-            android:layout_margin="5dp"
-            android:background="@android:color/holo_orange_dark"
-            />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="97dp"
-            android:text="@string/existingone"
-            android:layout_margin="5dp"
-            android:background="@android:color/holo_orange_dark"
-            />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="97dp"
-            android:text="@string/newcontact"
-            android:layout_margin="5dp"
-            android:background="@android:color/holo_orange_dark"
-            android:onClick="second_layout"
-            android:id="@+id/onto"
-            />
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    </LinearLayout>
+                <Button
+                    android:text="left"
+                    android:id="@+id/leftBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/headerText"
+                    android:layout_width="wrap_content"
+                    android:text="Platzhalter"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:onClick="onClear"
+                    android:text="right"
+                    android:id="@+id/rightBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <Button
+                    android:onClick="onTakePhoto"
+                    android:text="take Photo"
+                    android:id="@+id/takePhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:onClick="onChooseGallery"
+                    android:text="Choose Gallery"
+                    android:id="@+id/chooseGallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TableLayout
+                android:id="@+id/imageTable"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
-
-
-
-
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
