@@ -10,7 +10,7 @@
     android:paddingLeft="16dp"
     tools:context="hochschule.maicatch.MainActivity"
     android:orientation="vertical"
-    >
+    android:background="@android:color/darker_gray">
 
     <LinearLayout
         android:layout_marginTop="20dp"
