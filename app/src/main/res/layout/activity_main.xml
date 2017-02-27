@@ -45,6 +45,7 @@
             android:layout_margin="5dp"
             android:background="@android:color/holo_orange_dark"
             android:onClick="second_layout"
+            android:id="@+id/onto"
             />
 
     </LinearLayout>
