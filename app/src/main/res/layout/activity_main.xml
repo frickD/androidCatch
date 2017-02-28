@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingLeft="16dp"
     tools:context="hochschule.maicatch.MainActivity"
-    android:orientation="vertical"
-    android:background="@android:color/darker_gray">
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/background"
+        android:scaleType = "centerCrop"/>
 
     <LinearLayout
+        android:layout_gravity="center"
+        android:paddingBottom="16dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_marginTop="20dp"
+            style="@style/maicatchHeader"
+            android:layout_gravity="center_horizontal"
+            android:text="maiCatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </View>
         <Button
             android:padding="24dp"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:drawableLeft="@drawable/take"
             android:text="Take new Picture"
-            android:background="@android:color/holo_orange_dark"
+            android:background="@drawable/bright_trans"
            android:textSize="20dp"
             android:onClick="onTakePhoto"
             android:id="@+id/takePhoto"
@@ -36,7 +53,7 @@
             android:layout_height="90dp"
             android:drawableLeft="@drawable/choose"
             android:text="Take an existing one"
-            android:background="@android:color/holo_orange_dark"
+            android:background="@drawable/bright_trans"
             android:textSize="20dp"
             android:onClick="onChooseGallery"
             android:id="@+id/chooseGallery"/>
@@ -47,70 +64,13 @@
             android:layout_height="90dp"
             android:drawableLeft="@drawable/newcontact"
             android:text="Create new Contact"
-            android:background="@android:color/holo_orange_dark"
+            android:background="@drawable/bright_trans"
             android:textSize="20dp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            ></View>
 
     </LinearLayout>
-
-
-
-
-    <!--  <ScrollView
-          android:id="@+id/imageScroll"
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content">
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:orientation="vertical"
-              android:layout_height="wrap_content">
-              <LinearLayout
-                  android:gravity="center"
-                  android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-
-                  <Button
-                      android:text="left"
-                      android:id="@+id/leftBtn"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" />
-                  <TextView
-                      android:id="@+id/headerText"
-                      android:layout_width="wrap_content"
-                      android:text="Platzhalter"
-                      android:layout_height="wrap_content" />
-                  <Button
-                      android:onClick="onClear"
-                      android:text="right"
-                      android:id="@+id/rightBtn"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" />
-              </LinearLayout>
-              <LinearLayout
-                  android:gravity="center"
-                  android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-
-                  <Button
-                      android:onClick="onTakePhoto"
-                      android:text="take Photo"
-                      android:id="@+id/takePhoto"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" />
-                  <Button
-                      android:onClick="onChooseGallery"
-                      android:text="Choose Gallery"
-                      android:id="@+id/chooseGallery"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" />
-              </LinearLayout>
-              <TableLayout
-                  android:id="@+id/imageTable"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content">
-
-              </TableLayout>
-          </LinearLayout>
-      </ScrollView>-->
-</LinearLayout>
+</FrameLayout>
