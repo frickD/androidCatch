@@ -72,8 +72,8 @@ public class MainActivity extends Activity {
 
         button_left = (Button) findViewById(R.id.leftBtn);
         button_right = (Button) findViewById(R.id.rightBtn);
-        header_text = (TextView) findViewById(R.id.headerText);
-        imageTable = (TableLayout) findViewById(R.id.imageTable);
+        //header_text = (TextView) findViewById(R.id.headerText);
+
 
         header_text.setText("Image Table");
         button_left.setText("Select");
@@ -122,15 +122,23 @@ public class MainActivity extends Activity {
     }
 
     public void onTakePhoto(View view) {
+        openSecondLayout();
         Toast.makeText(context, "Selected Photo", Toast.LENGTH_SHORT).show();
         takePhoto();
+
     }
 
     public void onChooseGallery(View view){
+        openSecondLayout();
         Toast.makeText(context, "Selected Gallery", Toast.LENGTH_SHORT).show();
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, 1);
+    }
+
+    private void openSecondLayout(){
+        setContentView(R.layout.secon_layout);
+        imageTable = (TableLayout) findViewById(R.id.imageTable);
     }
 
     public void takePhoto(){
@@ -163,8 +171,9 @@ public class MainActivity extends Activity {
                 cursor.moveToFirst();
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                 String filePath = cursor.getString(columnIndex);
+                cursor.close();
                 Log.v("Load Image", "Gallery File Path ---->" + filePath);
-                imageList.add(path);
+                imageList.add(filePath);
                 Log.v("Load Image", "Image List Size ---->" + imageList.size());
 
                 new GetImages().execute();
