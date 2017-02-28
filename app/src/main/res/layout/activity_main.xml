@@ -52,37 +52,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-       android:layout_gravity="right"
 
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/leftBtn"
-            android:layout_gravity=""
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit"
-            android:textSize="15dp"
-            android:background="@android:color/holo_orange_dark"/>
-
-        <Button
-            android:layout_margin="20dp"
-            android:onClick="onClear"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clear"
-            android:background="@android:color/holo_orange_dark"
-            android:id="@+id/rightBtn"
-            android:textSize="15dp"
-            />
-
-
-    </LinearLayout>
 
 
     <!--  <ScrollView
