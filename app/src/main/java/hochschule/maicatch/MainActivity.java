@@ -31,6 +31,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -45,6 +46,7 @@ public class MainActivity extends Activity implements IOCRCallBack {
     Context context = null;
     Activity activity = null;
 
+
     private String mAPiKey = "cbb3cc55e988957"; //TODO Add your own Registered API key
     private boolean isOverlayRequired;
     private String mImageUrl;
@@ -52,6 +54,7 @@ public class MainActivity extends Activity implements IOCRCallBack {
     private EditText mTxtResult;
     private IOCRCallBack mIOCRCallBack;
     TableLayout imageTable = null;
+
 
     public ArrayList<Bitmap> bitmapList = new ArrayList<Bitmap>();
     ArrayList<String> imageList = new ArrayList<String>();
@@ -62,6 +65,15 @@ public class MainActivity extends Activity implements IOCRCallBack {
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         openFirstLayout();
+    }
+
+    //start new Activity
+    public void onSendToC4C(View view){
+
+        Intent starnewAct = new Intent(MainActivity.this, SendToC4C.class);
+        startActivity(starnewAct);
+
+
     }
 
     public void onClear(){
@@ -266,5 +278,10 @@ public class MainActivity extends Activity implements IOCRCallBack {
             }
             updateImageTable();
         }
+
+
+
+
     }
 }
+
