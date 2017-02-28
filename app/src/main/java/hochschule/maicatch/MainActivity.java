@@ -97,7 +97,7 @@ public class MainActivity extends Activity {
         onBackPressed();
 
     }
-    // Return Button
+    // Return Button Using KeyEvent
     public void onBackPress(int KeyCode, KeyEvent keyEvent){
 
         if(KeyCode == KeyEvent.KEYCODE_BACK){
