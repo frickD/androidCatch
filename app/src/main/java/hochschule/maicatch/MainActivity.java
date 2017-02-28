@@ -1,18 +1,12 @@
 package hochschule.maicatch;
 
 import android.content.Intent;
-import android.media.Image;
-import android.provider.Settings;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.EventListener;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -24,24 +18,14 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.Gravity;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -51,10 +35,7 @@ public class MainActivity extends Activity {
     Context context = null;
     Activity activity = null;
 
-    Button button_left = null;
-    Button button_right = null;
 
-    TextView header_text = null;
     TableLayout imageTable = null;
 
     ArrayList<String> imageList = new ArrayList<String>();
@@ -63,38 +44,11 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {
-
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_main);
 
         activity = MainActivity.this;
         context = MainActivity.this;
-
-        button_left = (Button) findViewById(R.id.leftBtn);
-        button_right = (Button) findViewById(R.id.rightBtn);
-        //header_text = (TextView) findViewById(R.id.headerText);
-
-
-        header_text.setText("Image Table");
-        button_left.setText("Select");
-        button_right.setText("Clear");
-
-
-        /*Button btnCamera = (Button) findViewById(R.id.btnCamera);
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
-
-        btnCamera.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, 0);
-
-            }
-        });*/
-
-
     }
 
     public void onClear(View view){
@@ -159,9 +113,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        /*Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-        imageView.setImageBitmap(bitmap);*/
 
         if(requestCode == 1) {
             Uri photoUri = data.getData();
