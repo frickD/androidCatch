@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -15,12 +16,15 @@ public class SendToC4C extends Activity{
 
     private String grabDataText;
     private Customer customer;
+    private EditText company, firstname, lastname, street, zipCity, phone, fax, mobil, email, url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_to_c4_c);
         context = this;
+        grabEditTextInputs();
+
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -33,13 +37,62 @@ public class SendToC4C extends Activity{
             grabDataText = (String) savedInstanceState.getSerializable("grabDataText");
         }
 
-         customer = handleResponse(grabDataText, "Germany");
+        customer = handleResponse(grabDataText, "Germany");
+        setCustomerValues();
+
 
         Spinner spinner = (Spinner) findViewById(R.id.genderID);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.gender, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+    }
+
+    private void grabEditTextInputs() {
+        company = (EditText)findViewById(R.id.comp);
+        firstname = (EditText)findViewById(R.id.vorname);
+        lastname = (EditText)findViewById(R.id.nachname);
+        street = (EditText)findViewById(R.id.straße);
+        zipCity = (EditText)findViewById(R.id.zipcity);
+        phone = (EditText)findViewById(R.id.telefon);
+        mobil = (EditText)findViewById(R.id.mobil);
+        fax = (EditText)findViewById(R.id.fax);
+        email = (EditText)findViewById(R.id.email);
+        url = (EditText)findViewById(R.id.url);
+    }
+
+    private void setCustomerValues () {
+        if (customer.getCompanyName().size() > 0) {
+            company.setText(customer.getCompanyName().get(0));
+        }
+        if (customer.getfirstAndLastName().size() > 0) {
+            firstname.setText(customer.getfirstAndLastName().get(0));
+        }
+        if (customer.getfirstAndLastName().size() > 1) {
+            lastname.setText(customer.getfirstAndLastName().get(1));
+        }
+        if (customer.getStreets().size() > 0) {
+            street.setText(customer.getStreets().get(0));
+        }
+        if (customer.getZipAndCity().size() > 0) {
+            zipCity.setText(customer.getZipAndCity().get(0));
+        }
+        if (customer.getPNumbers().size() > 0) {
+            phone.setText(customer.getPNumbers().get(0));
+        }
+        if (customer.getMNumbers().size() > 0) {
+            mobil.setText(customer.getMNumbers().get(0));
+        }
+        if (customer.getFNumbers().size() > 0) {
+            fax.setText(customer.getFNumbers().get(0));
+        }
+        if (customer.getMails().size() > 0) {
+            email.setText(customer.getMails().get(0));
+        }
+        if (customer.getUrls().size() > 0) {
+            url.setText(customer.getUrls().get(0));
+        }
+
     }
 
     public Customer handleResponse(String input, String countryParameter) {

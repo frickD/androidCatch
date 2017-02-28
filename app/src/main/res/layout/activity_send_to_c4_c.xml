@@ -38,12 +38,12 @@
             </View>
 
             <EditText
+                android:id="@+id/comp"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
                 android:hint="Company"
-                android:id="@id/company"
                 />
         </LinearLayout>
 
