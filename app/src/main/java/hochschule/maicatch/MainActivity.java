@@ -2,6 +2,7 @@ package hochschule.maicatch;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 import java.io.File;
@@ -93,7 +94,17 @@ public class MainActivity extends Activity {
     private void openSecondLayout(){
         setContentView(R.layout.secon_layout);
         imageTable = (TableLayout) findViewById(R.id.imageTable);
+        onBackPressed();
+
     }
+    // Return Button
+    public void onBackPress(int KeyCode, KeyEvent keyEvent){
+
+        if(KeyCode == KeyEvent.KEYCODE_BACK){
+            setContentView(R.layout.activity_main);
+        }
+    }
+
 
     public void takePhoto(){
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
