@@ -54,6 +54,17 @@
                 android:layout_height="wrap_content">
             </TableLayout>
 
+            <Button
+                android:onClick="onStartOCR"
+                android:id="@+id/btn_call_api"
+                android:text="Start OCR WITH THIS PICTURE"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/holo_orange_dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,10 +1,17 @@
 package hochschule.maicatch;
 
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.KeyEvent;
 import android.view.View;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -24,21 +31,29 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements IOCRCallBack {
 
     ImageView imageView;
     Context context = null;
     Activity activity = null;
 
-
+    private String mAPiKey = "cbb3cc55e988957"; //TODO Add your own Registered API key
+    private boolean isOverlayRequired;
+    private String mImageUrl;
+    private String mLanguage;
+    private EditText mTxtResult;
+    private IOCRCallBack mIOCRCallBack;
     TableLayout imageTable = null;
 
+    public ArrayList<Bitmap> bitmapList = new ArrayList<Bitmap>();
     ArrayList<String> imageList = new ArrayList<String>();
     ArrayList<Drawable> imageDrawable = new ArrayList<Drawable>();
     String path = "";
@@ -49,7 +64,7 @@ public class MainActivity extends Activity {
         openFirstLayout();
     }
 
-    public void onClear(View view){
+    public void onClear(){
         imageList.clear();
         imageDrawable.clear();
         deletePhotos();
@@ -92,24 +107,34 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         activity = MainActivity.this;
         context = MainActivity.this;
+        mIOCRCallBack = this;
+        mLanguage = "eng"; //Language
+        isOverlayRequired = true;
     }
 
     private void openSecondLayout(){
         setContentView(R.layout.secon_layout);
         imageTable = (TableLayout) findViewById(R.id.imageTable);
-        onBackPressed();
-
     }
 
 
     @Override
     public void onBackPressed(){
         openFirstLayout();
+        onClear();
     }
 
 
     public void takePhoto(){
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        intent.putExtra("crop", "true");
+        intent.putExtra("outputX", 500);
+        intent.putExtra("outputY", 500);
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("scale", true);
+        intent.putExtra("outputFormat",
+                Bitmap.CompressFormat.PNG.toString());
         File folder = new File(Environment.getExternalStorageDirectory() + "/LoadImg");
 
         if (!folder.exists()){
@@ -164,7 +189,7 @@ public class MainActivity extends Activity {
                     ImageView image = new ImageView(this);
                     image.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
                     image.setBackgroundDrawable(imageDrawable.get(i));
-                    tableRow.addView(image, 200, 200);
+                    tableRow.addView(image, 700, 1244);
                 }
                 imageTable.addView(tableRow);
             }
@@ -174,6 +199,38 @@ public class MainActivity extends Activity {
     public Drawable loadImagefromurl(Bitmap icon){
         Drawable d = new BitmapDrawable(icon);
         return d;
+    }
+
+    @Override
+    public void getOCRCallBackResult(String response) {
+        setContentView(R.layout.viewocrresult);
+        mTxtResult = (EditText) findViewById(R.id.result);
+        mTxtResult.setText(response);
+    }
+
+
+    public void onStartOCR(View view){
+        ProgressDialog mProgressDialog = new ProgressDialog(activity);
+        mProgressDialog.setTitle("Encoding the Picture....");
+        mProgressDialog.setCanceledOnTouchOutside(false);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+
+        Bitmap bm = bitmapList.get(0);
+        String encodedImage = "data:image/jpeg;base64," + encodeToBase64(bm, Bitmap.CompressFormat.JPEG, 100);
+
+        if (mProgressDialog != null && mProgressDialog.isShowing())
+            mProgressDialog.dismiss();
+        OCRAsyncTask oCRAsyncTask = new OCRAsyncTask(MainActivity.this, mAPiKey, isOverlayRequired, encodedImage, mLanguage,mIOCRCallBack);
+        oCRAsyncTask.execute();
+    }
+
+
+    public static String encodeToBase64(Bitmap image, Bitmap.CompressFormat compressFormat, int quality)
+    {
+        ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
+        image.compress(compressFormat, quality, byteArrayOS);
+        return Base64.encodeToString(byteArrayOS.toByteArray(), Base64.DEFAULT);
     }
 
     public  class GetImages extends AsyncTask<Void, Void, Void>{
@@ -189,12 +246,18 @@ public class MainActivity extends Activity {
             imageDrawable.clear();
             for (int i=0; i < imageList.size(); i++){
                 Bitmap bitmap = BitmapFactory.decodeFile(imageList.get(i).toString().trim());
-                bitmap = Bitmap.createScaledBitmap(bitmap, 500, 500, true);
+                Matrix matrix = new Matrix();
+                matrix.postRotate(90);
+                Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap , 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+                bitmap = Bitmap.createScaledBitmap(rotatedBitmap, 500, 899, true);
+                bitmapList.add(bitmap);
                 Drawable d = loadImagefromurl(bitmap);
                 imageDrawable.add(d);
             }
             return null;
         }
+
+
 
         @Override
         protected void onPostExecute(Void aVoid) {
