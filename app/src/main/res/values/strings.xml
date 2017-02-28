@@ -13,4 +13,8 @@
     <string name="fax">Fax</string>
     <string name="kunde">Kunde</string>
 
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
 </resources>

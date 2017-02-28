@@ -66,8 +66,9 @@ public class MainActivity extends Activity implements IOCRCallBack {
 
     //start new Activity
     public void onSendToC4C(View view){
-
+        String grabDataText = mTxtResult.getText().toString();
         Intent starnewAct = new Intent(MainActivity.this, SendToC4C.class);
+        starnewAct.putExtra("grabDataText", grabDataText);
         startActivity(starnewAct);
 
 
