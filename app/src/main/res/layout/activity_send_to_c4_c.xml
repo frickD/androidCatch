@@ -42,7 +42,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Company"/>
+                android:hint="Company"
+                android:id="@id/company"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -92,7 +94,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Nachname"/>
+                android:hint="Nachname"
+                android:id="@+id/nachname"/>
         </LinearLayout>
 
 
@@ -122,7 +125,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Vorname"/>
+                android:hint="Vorname"
+                android:id="@+id/vorname"/>
         </LinearLayout>
 
         <LinearLayout
@@ -147,7 +151,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Straße"/>
+                android:hint="Straße"
+                android:id="@+id/straße"/>
         </LinearLayout>
 
         <LinearLayout
@@ -172,7 +177,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Zip City"/>
+                android:hint="Zip City"
+                android:id="@+id/zipcity"/>
         </LinearLayout>
 
         <LinearLayout
@@ -200,7 +206,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="E-Mail"/>
+                android:hint="E-Mail"
+                android:id="@+id/email"/>
 
 
 
@@ -233,7 +240,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Telefon"/>
+                android:hint="Telefon"
+                android:id="@+id/telefon"/>
 
 
 
@@ -262,7 +270,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Fax"/>
+                android:hint="Fax"
+                android:id="@+id/fax"/>
         </LinearLayout>
 
         <LinearLayout
@@ -286,7 +295,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Mobil"/>
+                android:hint="Mobil"
+                android:id="@+id/mobil"/>
         </LinearLayout>
 
         <LinearLayout
@@ -310,7 +320,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="URL"/>
+                android:hint="URL"
+                android:id="@+id/url"/>
         </LinearLayout>
 
         <Button
