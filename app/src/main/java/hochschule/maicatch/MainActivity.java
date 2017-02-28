@@ -46,10 +46,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
-        setContentView(R.layout.activity_main);
-
-        activity = MainActivity.this;
-        context = MainActivity.this;
+        openFirstLayout();
     }
 
     public void onClear(View view){
@@ -91,18 +88,23 @@ public class MainActivity extends Activity {
         startActivityForResult(photoPickerIntent, 1);
     }
 
+    private void openFirstLayout(){
+        setContentView(R.layout.activity_main);
+        activity = MainActivity.this;
+        context = MainActivity.this;
+    }
+
     private void openSecondLayout(){
         setContentView(R.layout.secon_layout);
         imageTable = (TableLayout) findViewById(R.id.imageTable);
         onBackPressed();
 
     }
-    // Return Button Using KeyEvent
-    public void onBackPress(int KeyCode, KeyEvent keyEvent){
 
-        if(KeyCode == KeyEvent.KEYCODE_BACK){
-            setContentView(R.layout.activity_main);
-        }
+
+    @Override
+    public void onBackPressed(){
+        openFirstLayout();
     }
 
 
