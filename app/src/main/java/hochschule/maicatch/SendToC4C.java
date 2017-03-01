@@ -1,8 +1,10 @@
 package hochschule.maicatch;
 
 import android.app.Activity;
+import android.content.ContentProviderOperation;
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -172,5 +174,46 @@ public class SendToC4C extends Activity{
         }
 
     }
+
+    // Methode con maiConnect implementieren ==> onCreatecontact
+
+
+    private void CreateAndroidContact(final String firstname, final String lastname, final String email, final String phone, final String url, final String fax, final String gender, final String company, final String street){
+
+        String Firstname = firstname;
+        String Lastname = lastname;
+        String Email = email;
+        String Phone = phone;
+        String Url = url;
+        String Fax = fax;
+        String Street = street;
+        String Gender = gender;
+        String Company = company;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 }

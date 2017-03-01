@@ -33,7 +33,7 @@
                     android:layout_gravity="center"
                     android:layout_width="90dp"
                     android:layout_height="40dp"
-                    android:text="Edit"
+                    android:text="@string/edit"
                     android:textSize="15dp"
                     android:background="@drawable/bright_trans"/>
                 <View
@@ -46,7 +46,7 @@
                     style="@style/Header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CHOOSEN PICTURE"/>
+                    android:text="@string/choosen"/>
 
                 <View
                     android:layout_width="0dp"
@@ -58,7 +58,7 @@
                     android:onClick="onClear"
                     android:layout_width="90dp"
                     android:layout_height="40dp"
-                    android:text="Clear"
+                    android:text="@string/clear"
                     android:background="@drawable/bright_trans"
                     android:id="@+id/rightBtn"
                     android:layout_marginRight="20dp"
@@ -76,7 +76,7 @@
             <Button
                 android:onClick="onStartOCR"
                 android:id="@+id/btn_call_api"
-                android:text="Start OCR WITH THIS PICTURE"
+                android:text="@string/orc"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="30dp"

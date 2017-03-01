@@ -241,7 +241,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
                 android:hint="Phone"
-                android:id="@+id/telefon"/>
+                android:id="@+id/telefon"
+                android:inputType="phone"/>
 
 
 

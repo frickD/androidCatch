@@ -18,7 +18,7 @@
     <string name="tnP">TAKE NEW PICTURE</string>
     <string name="existingOne">Take an existing one</string>
     <string name="createNContact">Create new Contact</string>
-    <string name="header">maiCatch</string>
+    <string name="head">maiCatch</string>
 
 
 </resources>

@@ -27,7 +27,7 @@
             android:layout_marginTop="20dp"
             style="@style/maicatchHeader"
             android:layout_gravity="center_horizontal"
-            android:text="maiCatch"
+            android:text="@string/head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <View
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:drawableLeft="@drawable/take"
-            android:text="Take new Picture"
+            android:text="@string/tnP"
             android:background="@drawable/bright_trans"
            android:textSize="20dp"
             android:onClick="onTakePhoto"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:drawableLeft="@drawable/choose"
-            android:text="Take an existing one"
+            android:text="@string/existingOne"
             android:background="@drawable/bright_trans"
             android:textSize="20dp"
             android:onClick="onChooseGallery"
@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:drawableLeft="@drawable/newcontact"
-            android:text="Create new Contact"
+            android:text="@string/createNContact"
             android:background="@drawable/bright_trans"
             android:textSize="20dp"/>
         <View
