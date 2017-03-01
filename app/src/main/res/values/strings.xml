@@ -17,8 +17,13 @@
     <string name="choosen">CHOOSEN PICTURE</string>
     <string name="tnP">TAKE NEW PICTURE</string>
     <string name="existingOne">Take an existing one</string>
-    <string name="createNContact">Create new Contact</string>
+    <string name="createContact">Create new Contact</string>
     <string name="head">maiCatch</string>
+    <string name="createContactAndroid">CREATE CONTACT IN ANDROID</string>
+    <string name="createContactC4C">CREATE CONTACT IN C4C</string>
 
-
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
 </resources>

@@ -1,4 +1,4 @@
-package hochschule.maicatch;
+package hochschule.maicatch.ocr;
 
 /**
  * @ Firstcry

@@ -1,11 +1,9 @@
 package hochschule.maicatch;
 
 import android.content.Intent;
-import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.util.Base64;
-import android.view.KeyEvent;
 import android.view.View;
 
 import java.io.ByteArrayOutputStream;
@@ -28,13 +26,14 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import hochschule.maicatch.ocr.IOCRCallBack;
+import hochschule.maicatch.ocr.OCRAsyncTask;
 
 
 public class MainActivity extends Activity implements IOCRCallBack {
@@ -67,7 +66,7 @@ public class MainActivity extends Activity implements IOCRCallBack {
     //start new Activity
     public void onSendToC4C(View view){
         String grabDataText = mTxtResult.getText().toString();
-        Intent starnewAct = new Intent(MainActivity.this, SendToC4C.class);
+        Intent starnewAct = new Intent(MainActivity.this, ContactCreator.class);
         starnewAct.putExtra("grabDataText", grabDataText);
         startActivity(starnewAct);
 
@@ -77,6 +76,7 @@ public class MainActivity extends Activity implements IOCRCallBack {
     public void onClear(){
         imageList.clear();
         imageDrawable.clear();
+        bitmapList.clear();
         deletePhotos();
         updateImageTable();
     }
@@ -114,7 +114,7 @@ public class MainActivity extends Activity implements IOCRCallBack {
     }
 
     private void openFirstLayout(){
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_layout);
         activity = MainActivity.this;
         context = MainActivity.this;
         mIOCRCallBack = this;
@@ -123,7 +123,7 @@ public class MainActivity extends Activity implements IOCRCallBack {
     }
 
     private void openSecondLayout(){
-        setContentView(R.layout.secon_layout);
+        setContentView(R.layout.photoview_layout);
         imageTable = (TableLayout) findViewById(R.id.imageTable);
     }
 
@@ -213,7 +213,7 @@ public class MainActivity extends Activity implements IOCRCallBack {
 
     @Override
     public void getOCRCallBackResult(String response) {
-        setContentView(R.layout.viewocrresult);
+        setContentView(R.layout.ocrresult_layout);
         mTxtResult = (EditText) findViewById(R.id.result);
         mTxtResult.setText(response);
     }

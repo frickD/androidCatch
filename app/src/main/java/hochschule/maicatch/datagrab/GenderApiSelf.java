@@ -1,4 +1,4 @@
-package hochschule.maicatch;
+package hochschule.maicatch.datagrab;
 
 import android.content.Context;
 
@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 import java.util.ArrayList;
+
+import hochschule.maicatch.R;
 
 /**
  * Check the gender of a firstname

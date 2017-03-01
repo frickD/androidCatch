@@ -4,73 +4,75 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hochschule.maicatch.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="hochschule.maicatch.MainActivity">
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:src="@drawable/background"
-        android:scaleType = "centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
     <LinearLayout
-        android:layout_gravity="center"
-        android:paddingBottom="16dp"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
-            android:layout_marginTop="20dp"
             style="@style/maicatchHeader"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/head"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/head" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1">
-        </View>
+            android:layout_weight="1"></View>
+
         <Button
-            android:padding="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:drawableLeft="@drawable/take"
-            android:text="@string/tnP"
-            android:background="@drawable/bright_trans"
-           android:textSize="20dp"
-            android:onClick="onTakePhoto"
             android:id="@+id/takePhoto"
-            />
-        <Button
-           android:layout_marginTop="15dp"
-            android:padding="24dp"
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:drawableLeft="@drawable/choose"
-            android:text="@string/existingOne"
             android:background="@drawable/bright_trans"
-            android:textSize="20dp"
-            android:onClick="onChooseGallery"
-            android:id="@+id/chooseGallery"/>
+            android:drawableLeft="@drawable/take"
+            android:onClick="onTakePhoto"
+            android:padding="24dp"
+            android:text="@string/tnP"
+            android:textSize="20dp" />
+
         <Button
+            android:id="@+id/chooseGallery"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
             android:layout_marginTop="15dp"
+            android:background="@drawable/bright_trans"
+            android:drawableLeft="@drawable/choose"
+            android:onClick="onChooseGallery"
             android:padding="24dp"
+            android:text="@string/existingOne"
+            android:textSize="20dp" />
+
+        <Button
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:drawableLeft="@drawable/newcontact"
-            android:text="@string/createNContact"
+            android:layout_marginTop="15dp"
             android:background="@drawable/bright_trans"
-            android:textSize="20dp"/>
+            android:drawableLeft="@drawable/newcontact"
+            android:padding="24dp"
+            android:text="@string/createContact"
+            android:textSize="20dp" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            ></View>
+            android:layout_weight="1"></View>
 
     </LinearLayout>
 </FrameLayout>

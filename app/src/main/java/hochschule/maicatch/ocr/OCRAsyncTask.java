@@ -1,4 +1,4 @@
-package hochschule.maicatch;
+package hochschule.maicatch.ocr;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -14,8 +14,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Iterator;
-
-import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by suhasbachewar on 10/5/16.

@@ -1,10 +1,10 @@
-package hochschule.maicatch;
+package hochschule.maicatch.datagrab;
 
 import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
-import hochschule.maicatch.GenderApiSelf;
+import hochschule.maicatch.datagrab.GenderApiSelf;
 
 /**
  * Splits the local part of a e-mail into first and lastname and searches for

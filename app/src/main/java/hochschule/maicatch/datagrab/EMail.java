@@ -1,4 +1,4 @@
-package hochschule.maicatch;
+package hochschule.maicatch.datagrab;
 
 import java.util.List;
 import java.util.regex.Matcher;

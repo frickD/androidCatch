@@ -2,7 +2,7 @@
  * @author Marcel Mansouri
  */
 
-package hochschule.maicatch;
+package hochschule.maicatch.datagrab;
 
 /**
  * Replaces spam-protection in e-mail adresses
