@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Company"
+                android:text="@string/company"
                 android:textSize="15dp"/>
 
             <View
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gender"
+                android:text="@string/gender"
                 android:textSize="15dp"/>
 
             <View
@@ -80,7 +80,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nachname"
+                android:text="@string/lastname"
                 android:textSize="15dp"/>
 
             <View
@@ -94,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Nachname"
+                android:hint="Lastname"
                 android:id="@+id/nachname"/>
         </LinearLayout>
 
@@ -108,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vorname"
+                android:text="@string/firstname"
                 android:textSize="15dp"
                 />
 
@@ -125,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Vorname"
+                android:hint="Firstname"
                 android:id="@+id/vorname"/>
         </LinearLayout>
 
@@ -137,7 +137,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Straße"
+                android:text="@string/street"
                 android:textSize="15dp" />
 
             <View
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Straße"
+                android:hint="Street"
                 android:id="@+id/straße"/>
         </LinearLayout>
 
@@ -163,7 +163,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Zip City"
+                android:text="@string/zipCity"
                 android:textSize="15dp" />
 
             <View
@@ -189,7 +189,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="E-Mail"
+                android:text="@string/email"
                 android:textSize="15dp"
                 android:inputType="textEmailAddress"/>
 
@@ -223,7 +223,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Telefon"
+                android:text="@string/phone"
                 android:textSize="15dp"
                 android:inputType="phone"/>
 
@@ -240,7 +240,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.42"
-                android:hint="Telefon"
+                android:hint="Phone"
                 android:id="@+id/telefon"/>
 
 
@@ -257,7 +257,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fax"
+                android:text="@string/fax"
                 android:textSize="15dp"/>
             <View
                 android:layout_width="0dp"
@@ -282,7 +282,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mobil"
+                android:text="@string/mobil"
                 android:textSize="15dp"/>
             <View
                 android:layout_width="0dp"
@@ -307,7 +307,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="URL"
+                android:text="@string/url"
                 android:textSize="15dp"/>
             <View
                 android:layout_width="0dp"
