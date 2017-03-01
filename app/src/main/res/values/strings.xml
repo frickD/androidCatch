@@ -1,5 +1,5 @@
 <resources>
-
+    <string name="app_name">MAICATCH</string>
     <string name="firstname">Firstname</string>
     <string name="company">Company</string>
     <string name="lastname">Lastname</string>
@@ -11,6 +11,14 @@
     <string name="email">E-Mail</string>
     <string name="url">Url</string>
     <string name="gender">Gender</string>
+    <string name="edit">Edit</string>
+    <string name="clear">Clear</string>
+    <string name="orc">Start OCR with the Picture</string>
+    <string name="choosen">CHOOSEN PICTURE</string>
+    <string name="tnP">TAKE NEW PICTURE</string>
+    <string name="existingOne">Take an existing one</string>
+    <string name="createNContact">Create new Contact</string>
+    <string name="header">maiCatch</string>
 
 
 </resources>
