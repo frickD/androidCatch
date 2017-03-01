@@ -1,20 +1,16 @@
 <resources>
-    <string name="app_name">MAICATCH</string>
-    <string name="newpicture">Take new Picture</string>
-    <string name="existingone">Take an existing one</string>
-    <string name="newcontact">Create new Contact</string>
-    <string name="anrede">Anrede</string>
-    <string name="vorname">Vorname</string>
-    <string name="nachname">Nachname</string>
-    <string name="stellenbez.">Stellenbezeichnung</string>
-    <string name="funktion">Funktion</string>
-    <string name="email">E-Mail</string>
-    <string name="telefon">Telefon</string>
-    <string name="fax">Fax</string>
-    <string name="kunde">Kunde</string>
 
-    <string-array name="gender">
-        <item>male</item>
-        <item>female</item>
-    </string-array>
+    <string name="firstname">Firstname</string>
+    <string name="company">Company</string>
+    <string name="lastname">Lastname</string>
+    <string name="street">Street</string>
+    <string name="zipCity">Zip City</string>
+    <string name="phone">Phone</string>
+    <string name="mobil">Mobil</string>
+    <string name="fax">Fax</string>
+    <string name="email">E-Mail</string>
+    <string name="url">Url</string>
+    <string name="gender">Gender</string>
+
+
 </resources>
