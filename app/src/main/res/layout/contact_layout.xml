@@ -328,6 +328,7 @@
                 android:text="@string/createContactAndroid" />
 
             <Button
+                android:onClick="onCreateContactC4C"
                 android:id="@+id/btn_create_c4c"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"

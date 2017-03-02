@@ -17,62 +17,157 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        android:paddingBottom="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingBottom="16dp">
 
-        <TextView
-            style="@style/maicatchHeader"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/loginlayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/dark_trans"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                style="@style/Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C4C: " />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"></View>
+
+            <Button
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bright_trans"
+                android:onClick="onSetup"
+                android:text="Setup C4C"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/datalayout"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/dark_trans"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/c4clogin"
+                android:layout_marginLeft="20dp"
+                android:hint="Your C4C"
+                android:maxWidth="300dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:maxWidth="120dp"
+                android:id="@+id/userlogin"
+                android:layout_marginLeft="20dp"
+                android:hint="Username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:maxWidth="120dp"
+                android:id="@+id/pwlogin"
+                android:inputType="textPassword"
+                android:layout_marginLeft="20dp"
+                android:hint="Password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"></View>
+
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bright_trans"
+                android:onClick="onSave"
+                android:text="Save"
+                android:textSize="15dp" />
+            <Button
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bright_trans"
+                android:onClick="onClose"
+                android:text="Close"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="@string/head" />
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"></View>
+            <TextView
+                style="@style/maicatchHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="@string/head" />
 
-        <Button
-            android:id="@+id/takePhoto"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:background="@drawable/bright_trans"
-            android:drawableLeft="@drawable/take"
-            android:onClick="onTakePhoto"
-            android:padding="24dp"
-            android:text="@string/tnP"
-            android:textSize="20dp" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"></View>
 
-        <Button
-            android:id="@+id/chooseGallery"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/bright_trans"
-            android:drawableLeft="@drawable/choose"
-            android:onClick="onChooseGallery"
-            android:padding="24dp"
-            android:text="@string/existingOne"
-            android:textSize="20dp" />
+            <Button
+                android:id="@+id/takePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@drawable/bright_trans"
+                android:drawableLeft="@drawable/take"
+                android:onClick="onTakePhoto"
+                android:padding="24dp"
+                android:text="@string/tnP"
+                android:textSize="20dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/bright_trans"
-            android:drawableLeft="@drawable/newcontact"
-            android:padding="24dp"
-            android:text="@string/createContact"
-            android:textSize="20dp" />
+            <Button
+                android:id="@+id/chooseGallery"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bright_trans"
+                android:drawableLeft="@drawable/choose"
+                android:onClick="onChooseGallery"
+                android:padding="24dp"
+                android:text="@string/existingOne"
+                android:textSize="20dp" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"></View>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bright_trans"
+                android:drawableLeft="@drawable/newcontact"
+                android:padding="24dp"
+                android:text="@string/createContact"
+                android:textSize="20dp" />
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"></View>
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>

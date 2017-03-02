@@ -1,8 +1,10 @@
 package hochschule.maicatch;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentProviderOperation;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
@@ -12,13 +14,16 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import hochschule.maicatch.datagrab.Customer;
 import hochschule.maicatch.datagrab.EMail;
 import hochschule.maicatch.datagrab.GenderApiSelf;
 import hochschule.maicatch.datagrab.NameExtractor;
+import hochschule.maicatch.datagrab.ParseObject;
 import hochschule.maicatch.datagrab.Url;
+import hochschule.maicatch.datagrab.XMLParser;
 import hochschule.maicatch.datagrab.countrySpecificValues;
 import hochschule.maicatch.datagrab.countrySpecificValuesDE;
 import hochschule.maicatch.datagrab.countrySpecificValuesUS;
@@ -52,7 +57,7 @@ public class ContactCreator extends Activity {
 
         customer = handleResponse(grabDataText, "Germany");
         setCustomerValues();
-
+        showOKDialog("Warning", "Please check your contact data!");
 
         Spinner spinner = (Spinner) findViewById(R.id.genderID);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -108,6 +113,14 @@ public class ContactCreator extends Activity {
 
     }
 
+    private void showOKDialog(String title, String message){
+        AlertDialog.Builder alert = new AlertDialog.Builder(ContactCreator.this);
+        alert.setTitle(title);
+        alert.setMessage(message);
+        alert.setPositiveButton("OK", null);
+        alert.show();
+    }
+
     public Customer handleResponse(String input, String countryParameter) {
 
         List<String> validatedInput = new ArrayList<String>();
@@ -154,9 +167,10 @@ public class ContactCreator extends Activity {
     }
 
     public void onCreateContactAndroid(View view) {
-        createContactAndroid(firstname.getText().toString() + " " + lastname.getText().toString(),
-                mobil.getText().toString(), email.getText().toString(), company.getText().toString(),
-                "", phone.getText().toString(), "Erstellt mit der maihiro maiCatch App", "");
+        createContactAndroid(createContactDataMap());
+        Intent myIntent = new Intent(context, MainActivity.class);
+        myIntent.putExtra("ResponseCode", 0);
+        context.startActivity(myIntent);
     }
 
     /**
@@ -194,15 +208,15 @@ public class ContactCreator extends Activity {
 
     }
 
-    private void createContactAndroid(final String displayName, final String mobileNumber, final String email, final String companyName, final String jobTitle, final String homeNumber, final String notes, final String addedIn) {
-        String DisplayName = displayName;
-        String MobileNumber = mobileNumber;
-        String HomeNumber = homeNumber;
+    private void createContactAndroid(HashMap<String, String> contactDataMap) {
+        String DisplayName = contactDataMap.get(getString(R.string.firstname)) + " " + contactDataMap.get(getString(R.string.lastname));
+        String MobileNumber = contactDataMap.get(getString(R.string.mobil));
+        String HomeNumber = contactDataMap.get(getString(R.string.phone));
         String WorkNumber = "";
-        String emailID = email;
-        String company = companyName;
-        String JobTitle = jobTitle;
-        String Notes = notes + addedIn;
+        String emailID = contactDataMap.get(getString(R.string.email));
+        String company = contactDataMap.get(getString(R.string.company));
+        String jobTitle = "";
+        String Notes = "Mit der maihiro maiCatch App erstellt";
 
         ArrayList<ContentProviderOperation> ops = new ArrayList<ContentProviderOperation>();
 
@@ -308,4 +322,28 @@ public class ContactCreator extends Activity {
         }
     }
 
+    public void onCreateContactC4C (View view) {
+        ParseObject parseCustomer = new ParseObject();
+        parseCustomer.fillValues(createContactDataMap());
+        XMLParser parser = new XMLParser(context);
+        parser.fillXMLTemplate(parseCustomer);
+        parser.sendToC4C();
+        int i = parser.getResponseCode();
+    }
+
+    private HashMap<String, String> createContactDataMap() {
+        HashMap<String, String> contactMap = new HashMap<>();
+        contactMap.put(getString(R.string.firstname),firstname.getText().toString());
+        contactMap.put(getString(R.string.lastname),lastname.getText().toString());
+        contactMap.put(getString(R.string.mobil),mobil.getText().toString());
+        contactMap.put(getString(R.string.email),email.getText().toString());
+        contactMap.put(getString(R.string.company),company.getText().toString());
+        contactMap.put(getString(R.string.phone),phone.getText().toString());
+        contactMap.put(getString(R.string.street),street.getText().toString());
+        contactMap.put(getString(R.string.zipCity),zipCity.getText().toString());
+        contactMap.put(getString(R.string.email),email.getText().toString());
+        contactMap.put(getString(R.string.fax),fax.getText().toString());
+        contactMap.put(getString(R.string.url),url.getText().toString());
+        return  contactMap;
+    }
 }
